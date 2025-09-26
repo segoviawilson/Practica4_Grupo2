@@ -1,11 +1,11 @@
 ## INTEGRANTES.
 | Nombre | Cargo | URL GitHub |
 |---|:---:|---:|
-| Daniel Alquinga | :technologist: Desarrollador |  |
-| Daniel Baldeon | :technologist: Desarrollador |  |
-| Bryan Miño | :technologist: Desarrollador |  |
-| Wilson Segovia | :technologist: Desarrollador |  |
-| Leonardo Tuguminago | :technologist: Desarrollador |  |
+| Daniel Alquinga | :technologist: Desarrollador | https://github.com/superdavi/Practica4_Grupo2  |
+| Daniel Baldeon | :technologist: Desarrollador | https://github.com/debpdhs/Practica4_Grupo2  |
+| Bryan Miño | :technologist: Desarrollador | https://github.com/bmiomi/tarea4-grupo2.git |
+| Wilson Segovia | :technologist: Desarrollador | https://github.com/segoviawilson/Practica4_Grupo2.git |
+| Leonardo Tuguminago | :technologist: Desarrollador | https://github.com/Tuguminago/Practica4_Grupo2.git |
 
 # 1. Despliegue de entorno de automatización con n8n integrados con PostgreSQL en Docker Compose
 
@@ -113,12 +113,12 @@ docker compose -f ../postgres/compose.postgres.yml  up -d
 <img width="1600" height="318" alt="image-6" src="https://github.com/user-attachments/assets/e812f85a-b49c-490b-b8bd-e53ed013a213" />
 
 
-# 3. Conclusiones
+# 3. Conclusiones y Recomendaciones
 
-- Se 
+- La orquestación con Docker Compose facilita la gestión de múltiples servicios Al desplegar dos instancias de n8n con sus respectivas bases de datos PostgreSQL, se comprobó cómo Docker Compose permite definir, levantar y administrar entornos complejos de forma sencilla y estructurada. Esto reduce errores manuales y mejora la organización del proyecto.
 
-- Al ejecutar el análisis en cada push al repositorio, se identifica proactivamente vulnerabilidades en etapas tempranas del desarrollo, reduciendo riesgos de seguridad en producción.
+- Separar servicios y usar volúmenes garantiza portabilidad y persistencia Al mantener cada aplicación n8n con su propia base de datos y volumen persistente, se asegura que los datos no se pierdan al reiniciar los contenedores. Además, al evitar bind mounts y usar variables en archivos .env, el proyecto se vuelve más portable y seguro.
+  
+- Verificar la correcta separación de servicios en el archivo docker-compose.yml, es necesario comprobar que cada instancia de n8n y su respectiva base de datos PostgreSQL estén definidas como servicios independientes, con nombres claros y sin ambigüedades. Esto refleja comprensión de la arquitectura modular y facilita el mantenimiento del entorno.
 
-- Docker Scout proporciona visibilidad completa sobre las vulnerabilidades en todas las capas de la imagen, facilitando la identificación de dependencias problemáticas en la aplicación FastAPI.
-
-- GitHub Actions proporciona registros detallados de cada ejecución, creando un historial auditable de los estados de seguridad de la aplicación a lo largo del tiempo.
+-Evaluar el uso adecuado de variables de entorno y la ausencia de credenciales en texto plano Es fundamental que todas las configuraciones sensibles (usuarios, contraseñas, puertos, etc.) estén gestionadas mediante el archivo .env., es por ello que se debe  asegurar que no se hayan expuesto datos críticos directamente en el docker-compose.yml, lo cual es una práctica insegura.
