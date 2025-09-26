@@ -121,4 +121,4 @@ docker compose -f ../postgres/compose.postgres.yml  up -d
   
 - Verificar la correcta separación de servicios en el archivo docker-compose.yml, es necesario comprobar que cada instancia de n8n y su respectiva base de datos PostgreSQL estén definidas como servicios independientes, con nombres claros y sin ambigüedades. Esto refleja comprensión de la arquitectura modular y facilita el mantenimiento del entorno.
 
--Evaluar el uso adecuado de variables de entorno y la ausencia de credenciales en texto plano Es fundamental que todas las configuraciones sensibles (usuarios, contraseñas, puertos, etc.) estén gestionadas mediante el archivo .env., es por ello que se debe  asegurar que no se hayan expuesto datos críticos directamente en el docker-compose.yml, lo cual es una práctica insegura.
+- Evaluar el uso adecuado de variables de entorno y la ausencia de credenciales en texto plano Es fundamental que todas las configuraciones sensibles (usuarios, contraseñas, puertos, etc.) estén gestionadas mediante el archivo .env., es por ello que se debe  asegurar que no se hayan expuesto datos críticos directamente en el docker-compose.yml, lo cual es una práctica insegura.
